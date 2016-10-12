@@ -9,7 +9,7 @@ class Usuarios {
     }
 
     public static function getById($idUsuario) {
-        $consulta = "SELECT idUsuario, nombre, contrasenha FROM usuario WHERE idUsuario = ?";
+        $consulta = "SELECT id_usuario, nombre, contrasenha FROM usuario WHERE id_usuario = ?";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($idUsuario));
@@ -21,7 +21,7 @@ class Usuarios {
     }
 
     public static function getByNamePass($nombre, $pass) {
-        $consulta = "SELECT * FROM usuario WHERE nombre = $nombre and contrasenha = $pass ";
+        $consulta = "SELECT * FROM usuario WHERE nombre = '$nombre' and contrasenha = '$pass' ";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($idUsuario));
